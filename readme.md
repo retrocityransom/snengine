@@ -12,7 +12,7 @@ The pictures provided here are not an implementation manual, but rather a person
 
 ## About
 
-https://youtu.be/9fGX9Tb3N7Q
+<https://youtu.be/9fGX9Tb3N7Q>
 
 When I was looking for a simple and affordable way to connect an SNES/SFC controller to my consolized MVS system, I came across Robin Edwards’ GitHub repository featuring the excellent “[SNES to NeoGeo](https://github.com/robinhedwards/SNES-to-NeoGeo) ” project. It builds on the groundwork laid by [another GitHub project by Anthony Burkholder](https://github.com/burks10/Arduino-SNES-Controller) — to give proper credit here. Putting the adapter together went really well, and it was surprisingly easy, even though I’m not particularly experienced with soldering. One especially nice touch is that Robin also provides files for a 3D-printable case to house the Arduino and the SNES female controller port. Luckily, my brother owns a 3D printer and kindly made a few of these cases for me.
 
@@ -99,8 +99,8 @@ Since wireless adapters may introduce voltage inconsistency, it’s best to plac
 | -        | -                   | -                  | -              | -               | 15         | -           | 7                        | Output Enable (multitap controller switching) |
 | 1        | VCC 5V+             | -                  | VCC            | -               | 16         | -           | 1                        | VCC 5V+                                       |
 | 7        | GND                 | -                  | GND            | -               | 8          | -           | 8                        | GND                                           |
-| 2        | Clock               | -                  | A0             | -               | 8          | -           | -                        | -                                             |
-| 2        | Latch               | -                  | A1             | -               | 8          | -           | -                        | -                                             |
+| 2        | Clock               | -                  | -              | A0              | 8          | -           | -                        | -                                             |
+| 2        | Latch               | -                  | -              | A1              | 8          | -           | -                        | -                                             |
 
 **Click the diagrams below to enlarge.**
 
