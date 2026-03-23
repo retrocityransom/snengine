@@ -4,53 +4,57 @@
 
 **SNES to PCEngine controller adapter** *by RetroCityRansom (<www.youtube.com/@retrocityransom>)*
 
-## Disclaimer
-
-Use at your own risk. I am not an electrician and strongly advise against trying this without consulting a qualified professional and verifying the accuracy of all information provided in this repository.
-The adapter has not been thoroughly tested yet. You may need to add resistors, capacitors or other electrical parts to ensure safe and error free operation.
-The pictures provided here are not an implementation manual, but rather a personal photo diary.
-
 ## About
 
 <https://youtu.be/9fGX9Tb3N7Q>
 
 When I was looking for a simple and affordable way to connect an SNES/SFC controller to my consolized MVS system, I came across Robin Edwards’ GitHub repository featuring the excellent “[SNES to NeoGeo](https://github.com/robinhedwards/SNES-to-NeoGeo) ” project. It builds on the groundwork laid by [another GitHub project by Anthony Burkholder](https://github.com/burks10/Arduino-SNES-Controller) — to give proper credit here. Putting the adapter together went really well, and it was surprisingly easy, even though I’m not particularly experienced with soldering. One especially nice touch is that Robin also provides files for a 3D-printable case to house the Arduino and the SNES female controller port. Luckily, my brother owns a 3D printer and kindly made a few of these cases for me.
 
-Then one day, while playing on my PC Engine, I caught myself thinking, “Man, the controls are totally mushy”. The original PCE controllers are fine - in a way, but I personally prefer using a PS4, NES or SNES controller. They offer much tighter controls, I think.  There is an adapter for NES pads available ("NES2PCE"), but at the moment it costs around 35\$, plus shipping and import taxes, which adds up pretty quickly. It was mostly not in stock when I was looking, anyway. Another option are PCE Bluetooth adapters ("PCE BT", ~40\$) - I own two of them. Well, the input latency becomes noticeable when both BT adapters + controllers are connected — or when you hook up two or more controllers to a single adapter in multitap mode. For me, those adapters are only a good option when playing solo. Maybe I was using the existing solutions just wrong, but however ... With the recent experience of working on my own “SNES to NeoGeo” project still fresh in my mind, I decided to create something similar for the PC Engine and fit the electronics into the same case design from the SNES to NeoGeo project. I was looking forward to get some more practice soldering stuff together. So this is a small project just for the fun of it.
+Then one day, while playing on my PC Engine, I caught myself thinking, “Man, the controls are totally mushy”. The original PCE controllers are fine - in a way, but I personally prefer using a PS4, NES or SNES controller. They offer much tighter controls, I think.  There is an adapter for NES pads available ("NES2PCE"), but at the moment it costs around 35\$, plus shipping and import taxes, which adds up pretty quickly. It was mostly not in stock when I was looking, anyway. Another option are PCE Bluetooth adapters ("PCE BT", ~40\$) - I own two of them. Well, the input latency becomes noticeable when both BT adapters + controllers are connected — or when you hook up two or more controllers to a single adapter in multitap mode. For me, those adapters are only a good option when playing solo. Maybe I was using the existing solutions just wrong, but however ... With the recent experience of working on my own “SNES to NeoGeo” project still fresh in my mind, I decided to create something similar for the PC Engine and fit the electronics into the same case design from the SNES to NeoGeo project. I was looking forward to get some more practice soldering stuff together. So this is a small SNES-to-PCEngine converter (or SNES-to-Turbografx converter) project just for the fun of it.
 
 ## Features
 
 - Implementation template for PC Engine and TurboGrafx-16. Optionally use a female NES port instead of an SNES port to connect an NES controller (without autofire, since the SNES shoulder buttons are not available); a different case would be required though
-- Two selectable button layouts for 2-button mode (see below)
-- Cross-mapped buttons: SNES B/X = PCE button I, SNES A/Y = PCE button II (can be adjusted in the code)
-- Autofire with adjustable speed (see below)
-- Pressing A/B/X/Y on the SNES controller overrides the L and R autofire buttons. Very useful for games like R-Type in which you want to have autofire and a charged shot at the same time.
+- Two to eight selectable button layouts for 2-button mode (depending on version)
+- Autofire with adjustable speed
+- Settings can be stored in persistent memory
 - Multitap compatible (tested with two SNEngine adapters and one original CoreGrafx controller simultaneously)
+- Pressing the equivalents for button I and II on the SNES controller overrides already pressed autofire buttons. Very useful for games like R-Type in which you want to have autofire and a charged shot at the same time.
 - No noticeable input lag or audio glitches (at least in my testing).
 - Works with the 8BitDo SN30 2.4G for SNES and the 8BitDo Retro Receiver for SNES -> allows use of wireless SNES or Bluetooth controllers; likely compatible with similar 8BitDo products for NES
 
 ## Currently not featured
 
 - 6 button mode; I don’t use this myself, but if someone proposes a reasonable SNES button mapping, I can add support for it.
-- Remembering the last mapping in the EEPROM
 - Just a heads-up — this might not apply to your case: the more recent “green shell” 8BitDo SN30 controllers may come with a different 2.4 GHz adapter. In my case, that adapter seems to mix up the SNES button mapping. However, the controller works fine when connected using the 2.4 GHz adapter from the older grey version. Alternatively, you could adjust the code to handle the swapped mapping.
 
 ## Button mapping details
 
-- The shoulder buttons L and R are autofire buttons. The default value is set to 30Hz, but you can switch between 30Hz and 15Hz by simultaneously pressing SELECT + UP.
-- The mapping of button I & II can be inverted by pressing SELECT + DOWN simultaneously.
-- The *default* mapping SNES => PCE is
-  - B, X => Button I
-  - L => Autofire Button I
-  - A, Y => Button II
-  - R => Autofire Button II
-  - The rest is as to be expected (up => up, ..., start => start, ...)
+- SNEngine supports autofire. The default value is set to 30Hz, but you can switch between 30Hz and 15Hz by simultaneously pressing SELECT + UP.
+- New since version 202603231-1: You can press SELECT+RIGHT to save your chosen autofire frequency and button mapping in persistent memory. This will be your new default setting from then on.
+- The selectable mappings SNES => PCE are
+  - since version 20260322-2
+    - Layout A: B/X=I, L=Turbo I, A/Y=II, R=Turbo II
+    - Layout B: B/X=II, L=Turbo II, A/Y=I, R=Turbo I
+  - new in version 202603231-1
+    - Layout C: B/L=I, Y=Turbo I, A/R=II, X=Turbo II
+    - Layout D: B/L=II, Y=Turbo II, A/R=I, X=Turbo I
+    - Layout E: X/L=I, B=Turbo I, Y/R=II, A=Turbo II
+    - Layout F: X/L=II, B=Turbo II, Y/R=I, A=Turbo I
+    - Layout G: X/L=I, Y=Turbo I, A/R=II, B=Turbo II
+    - Layout H: X/L=II, Y=Turbo II, A/R=I, B=Turbo I (great for Salamander)
 
 ## Basic Principle
 
 I've tried really hard to make it all work only with the Arduino, following the "SNES to NeoGeo" principle. But the PC Engine / Turbografx 16 has completely different requirements and the Ardu alone was not enough. The signal processing has to be done in such a fast way, that even the Arduino interrupt was overburdened. So I've had to add a much faster multiplexer (same type as used in the original controller) to the mix to cope with the fast switching SEL and OE processing from the PCE.
 The rough layout sketch is like: SNES controller -> [ SNES controller female port -> Arduino -> Multiplexer -> Mini Din 8 cable (for PC Engine) / Din 8 (for TG16) ] -> PC Engine (or Turbografx 16). Please check out the diagrams provided below for reference.
 Since wireless adapters may introduce voltage inconsistency, it’s best to place capacitors near the SNES port.
+
+## Disclaimer
+
+Use at your own risk. I am not an electrician and strongly advise against trying this without consulting a qualified professional and verifying the accuracy of all information provided in this repository.
+The adapter has not been thoroughly tested yet. You may need to add resistors, capacitors or other electrical parts to ensure safe and error free operation.
+The pictures provided here are not an implementation manual, but rather a personal photo diary.
 
 ## Shopping list, software & tools
 
@@ -78,7 +82,7 @@ Since wireless adapters may introduce voltage inconsistency, it’s best to plac
 | Tool     |              | USB-to-TTL serial adapter, e.g. IDUINO FT232                                 | To program the Arduino                                                                                                                                                                                                                                                             |
 | Tool     | Yes          | 3d printer                                                                   | If you want the case ...                                                                                                                                                                                                                                                           |
 
-## Pin mapping
+## SNES2PCE / SNES2TG16 pinout
 
 - Multiplexer bank A: Action buttons
 - Multiplexer bank B: D-Pad buttons
