@@ -6,11 +6,11 @@
   - No noticable input lag (at least for me)
   - Autofire with adjustable speed (see below)
   - Multitap compatible (tested with 2 SNEngine adapters and 1 original CoreGrafx gamepad simultaneously)
-  - 2 switchable button layouts (see below)
+  - 8 selectable button layouts (see below)
 
   Hotkey combos:
   - SELECT + UP: change autofire speed
-  - SELECT + DOWN: cycle through 8 different button layouts
+  - SELECT + DOWN: cycle through different button layouts
 */
 #include <EEPROM.h>
 
