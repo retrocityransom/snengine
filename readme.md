@@ -56,6 +56,11 @@ Use at your own risk. I am not an electrician and strongly advise against trying
 The adapter has not been thoroughly tested yet. You may need to add resistors, capacitors or other electrical parts to ensure safe and error free operation.
 The pictures provided here are not an implementation manual, but rather a personal photo diary.
 
+## Updates
+
+- Stability for Multitap: Implementig a 100uF electornic capacitor turned out to be much more stable than the solution with 47uF.
+- Stability for Multitap: Additionally put a 47nF ceramic cap between GND and VCC of the MUX. I've soldered mine under the perfboard.
+
 ## Shopping list, software & tools
 
 | **Type** | **Optional** | **Part**                                                                     | **Remark**                                                                                                                                                                                                                                                                         |
@@ -65,8 +70,9 @@ The pictures provided here are not an implementation manual, but rather a person
 | Part     |              | Female SNES controller port                                                  | Guess … Should not cost more than 50 cents rather 35 cents.                                                                                                                                                                                                                        |
 | Part     |              | Mini Din-8 cable (at least with one male plug)                               | To connect the multiplexer to the PCE. I got mine for under €8. These are also available with two male connectors, so you can build two adapters with just one cable.                                                                                                              |
 | Part     |              | Some wires & heat shrink tubing                                              | I've used 28 AWG wires, 30 AWG should also be fine                                                                                                                                                                                                                                 |
-| Part     | (Yes)        | 47uF electrolytic capcitor                                                   | Highly recommended! Mind the correct polarity! Use together with 100nF ceramic cap to smooth out electrical spikes, stabilize voltage and hence avoid sound glitches when using 2.4gHz 8BitDo adapters instead of wired SNES pad. Connect between GND and VCC of SNES female port. |
-| Part     | (Yes)        | 100nF ceramic capcitor (type 104)                                            | Highly recommended! Use together with 47uF ceramic cap to smooth out electrical spikes, stabilize voltage and hence avoid sound glitches when using 2.4gHz 8BitDo adapters instead of wired SNES pad. Connect between GND and VCC of SNES female port.                             |
+| Part     | (Yes)        | 100uF electrolytic capcitor                                                  | Highly recommended! Mind the correct polarity! Use together with 100nF ceramic cap to smooth out electrical spikes, stabilize voltage and hence avoid sound glitches when using 2.4gHz 8BitDo adapters instead of wired SNES pad. Connect between GND and VCC of SNES female port. |
+| Part     | (Yes)        | 100nF ceramic capcitor (type 104)                                            | Highly recommended! Use together with 100uF ceramic cap to smooth out electrical spikes, stabilize voltage and hence avoid sound glitches when using 2.4gHz 8BitDo adapters instead of wired SNES pad. Connect between GND and VCC of SNES female port.                            |
+| Part     | (Yes)        | 100nF ceramic capcitor (type 104) for the MUX                                | Highly recommended! Put between GND and VCC of the MUX.                                                                                                                                                                                                                            |
 | Part     | Yes          | Screw terminal block (8 pin) connectors 2.54mm                               | Very convenient if you do not want to take the risk soldering the wrong cables to your Arduino. Any size will work, but two eight-terminal connectors are optimal. Using a larger one prevents the MUX from fitting under the Arduino, requiring a bigger case.                    |
 | Part     | Yes          | A small Perfboard                                                            | I've cut mine 4x8. To mount/protect the multiplexer so that its pins do not bend, attach the wires to the underside.  If your case is significantly larger than that of the SNES-to-NEOGEO adapter, you can try mounting all the electronic components.                            |
 | Part     | Yes          | Superglue                                                                    | To firmly attach the SNES port to the case. Best only glue the lower part of the case and the SNES port, so you can still open the case without breaking it.                                                                                                                       |
@@ -128,7 +134,11 @@ Here are some pictures to show, how I've tried to build the SNEngine adapter and
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_36_small.jpg)
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_37_small.jpg)
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_40_small.jpg)
+
+**Better use 100uF than 47uF. Keep in mind that the 100uF cap is slightly bigger and will need more space.**
+
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_41_small.jpg)
+
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_42_small.jpg)
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_44_small.jpg)
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_45_small.jpg)
