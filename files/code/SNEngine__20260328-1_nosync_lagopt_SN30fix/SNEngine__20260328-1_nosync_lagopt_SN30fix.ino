@@ -142,5 +142,5 @@ void loop() {
   PORTD = (PORTD & 0x0F) | (outPortD & 0xF0);
   PORTB = (PORTB & 0xF0) | (outPortB & 0x0F);
 
-  delay(12); 
+  //delay(12); 
 }
