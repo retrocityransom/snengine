@@ -25,7 +25,7 @@ Then one day, while playing on my PC Engine, I caught myself thinking, “Man, t
 
 ## Currently not featured
 
-- 6 button mode; I don’t use this myself, but if someone proposes a reasonable SNES button mapping, I can add support for it.
+- 6 button mode; I don’t use this myself, but if someone proposes a reasonable SNES button mapping, I can add support for it. This would require a new little project, since the current architecture seems not to be sufficiently fast for that.
 - Just a heads-up — this might not apply to your case: the more recent “green shell” 8BitDo SN30 controllers may come with a different 2.4 GHz adapter. In my case, that adapter seems to mix up the SNES button mapping. However, the controller works fine when connected using the 2.4 GHz adapter from the older grey version. Alternatively, you could adjust the code to handle the swapped mapping.
 
 ## Button mapping details
@@ -60,6 +60,7 @@ The pictures provided here are not an implementation manual, but rather a person
 
 - Stability for Multitap: Implementig a 100uF electornic capacitor turned out to be much more stable than the solution with 47uF.
 - Stability for Multitap: Additionally put a 47nF ceramic cap between GND and VCC of the MUX. I've soldered mine under the perfboard.
+- new SN30 fix (reading 16 bits from SNES again)
 
 ## Shopping list, software & tools
 
