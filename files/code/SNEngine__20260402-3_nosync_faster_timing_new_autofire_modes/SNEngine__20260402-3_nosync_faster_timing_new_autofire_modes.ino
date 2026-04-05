@@ -184,7 +184,7 @@ void loop() {
     bool pceI      = (b & current.maskPCE_I)  || ((b & current.maskPCE_I_AF)  && turboTick);
     bool pceII     = (b & current.maskPCE_II) || ((b & current.maskPCE_II_AF) && turboTick);
     bool pceStart  = (b & (1UL << SNES_START));
-    bool pceSelect = (b & (1UL << SNES_SELECT)) && !comboLock; // try not to send SELECT while using hotkey; only works, if the other button is pressed first
+    bool pceSelect = (b & (1UL << SNES_SELECT)) /*&& !comboLock*/;
     bool up    = (b & (1UL << SNES_UP));
     bool down  = (b & (1UL << SNES_DOWN));
     bool left  = (b & (1UL << SNES_LEFT));

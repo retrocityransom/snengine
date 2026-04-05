@@ -39,8 +39,6 @@ Then one day, while playing on my PC Engine, I caught myself thinking, “Man, t
 ### Hotkeys
 
 SNEngine offers hotkey combinations to choose different settings for your controller and save them persistently. These combos consist of SELECT plus a directonal button (currently UP, DOWN or RIGHT only).
-*Some games pause when you press SELECT. Since version "SNEngine__20260402-2" you have the option to press the directional button first before pressing SELECT to avoid that.*
-Let's assume you're playing Bloody Wolf - if press and hold UP and press SELECT subsequently the game won't pause.
 
 - SELECT + UP: SNEngine supports autofire. You can switch between frequencies by simultaneously pressing SELECT + UP. Since version SNEngine__20260402-2 there are more than just two speeds to choose from.
 - SELECT + DOWN: Choose your preferred button layout by pressing SELECT + DOWN simultaneously. 
