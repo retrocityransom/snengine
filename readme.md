@@ -10,6 +10,8 @@ When I was looking for a simple and affordable way to connect an SNES/SFC contro
 
 Then one day, while playing on my PC Engine, I caught myself thinking, “Man, the controls are totally mushy”. The original PCE controllers are fine - in a way, but I personally prefer using a PS4, NES or SNES controller. They offer much tighter controls, I think.  There is an adapter for NES pads available ("NES2PCE"), but at the moment it costs around 35\$, plus shipping and import taxes, which adds up pretty quickly. It was mostly not in stock when I was looking, anyway. Another option are PCE Bluetooth adapters ("PCE BT", ~40\$) - I own two of them. Well, the input latency becomes noticeable when both BT adapters + controllers are connected — or when you hook up two or more controllers to a single adapter in multitap mode. For me, those adapters are only a good option when playing solo. Maybe I was using the existing solutions just wrong, but however ... With the recent experience of working on my own “SNES to NeoGeo” project still fresh in my mind, I decided to create something similar for the PC Engine and fit the electronics into the same case design from the SNES to NeoGeo project. I was looking forward to get some more practice soldering stuff together. So this is a small SNES-to-PCEngine converter (or SNES-to-Turbografx converter) project just for the fun of it.
 
+**[Download the user manual](files/SNEngine_20260402-3_User_Manual.pdf)**
+
 **Watch the teaser on Youtube**
 
 [![Video ansehen](https://img.youtube.com/vi/9fGX9Tb3N7Q/0.jpg)](https://www.youtube.com/watch?v=9fGX9Tb3N7Q)
