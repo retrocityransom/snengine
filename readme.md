@@ -10,7 +10,9 @@ When I was looking for a simple and affordable way to connect an SNES/SFC contro
 
 Then one day, while playing on my PC Engine, I caught myself thinking, “Man, the controls are totally mushy”. The original PCE controllers are fine - in a way, but I personally prefer using a PS4, NES or SNES controller. They offer much tighter controls, I think.  There is an adapter for NES pads available ("NES2PCE"), but at the moment it costs around 35\$, plus shipping and import taxes, which adds up pretty quickly. It was mostly not in stock when I was looking, anyway. Another option are PCE Bluetooth adapters ("PCE BT", ~40\$) - I own two of them. Well, the input latency becomes noticeable when both BT adapters + controllers are connected — or when you hook up two or more controllers to a single adapter in multitap mode. For me, those adapters are only a good option when playing solo. Maybe I was using the existing solutions just wrong, but however ... With the recent experience of working on my own “SNES to NeoGeo” project still fresh in my mind, I decided to create something similar for the PC Engine and fit the electronics into the same case design from the SNES to NeoGeo project. I was looking forward to get some more practice soldering stuff together. So this is a small SNES-to-PCEngine converter (or SNES-to-Turbografx converter) project just for the fun of it.
 
-**[Download the user manual](files/SNEngine_20260402-3_User_Manual.pdf)**
+**[Download the user manual 20260409-4 (+ updated version with optional OLED feature)](files/SNEngine_20260409-4_User_Manual.pdf)**
+
+**[Download the user manual 20260402-3](files/SNEngine_20260402-3_User_Manual.pdf)**
 
 **Watch the teaser on Youtube**
 
@@ -43,13 +45,12 @@ Then one day, while playing on my PC Engine, I caught myself thinking, “Man, t
 SNEngine offers hotkey combinations to choose different settings for your controller and save them persistently. These combos consist of SELECT plus a directonal button (currently UP, DOWN or RIGHT only).
 
 - SELECT + UP: SNEngine supports autofire. You can switch between frequencies by simultaneously pressing SELECT + UP. Since version SNEngine__20260402-2 there are more than just two speeds to choose from.
-- SELECT + DOWN: Choose your preferred button layout by pressing SELECT + DOWN simultaneously. 
+- SELECT + DOWN: Choose your preferred button layout by pressing SELECT + DOWN simultaneously.
 - SELECT + RIGHT: You can press SELECT + RIGHT to save your chosen autofire frequency and button mapping in persistent memory. This will be your new default setting from then on.
 
 ## Currently not featured
 
 - 6 button mode; I don’t use this myself, but Reddit user MasterDenton suggested B=I, A=II, R=III, Y=IV, X=V, L=VI (thanks man - I'm totally lost there). I will try to add support for it or make it work with a different HW set-up (likely required) in the future.
-- Visual feedback: I will add support or RGB LEDs or a tiny OLED to display the chosen Button settings and such...
 
 ## Basic Principle
 
@@ -84,6 +85,7 @@ The pictures provided here are not an implementation manual, but rather a person
 | Part     | Yes          | The 3d printed SNES-TO-NEOGEO shell                                          | To achieve greatness!!!                                                                                                                                                                                                                                                            |
 | Part     | Yes          | 3mmx16mm screws                                                              | To assemble the shell. You could simply wrap some tape around it instead.                                                                                                                                                                                                          |
 | Part     | Yes          | Cable/strain relief                                                          | I've got mine from another electrical case.                                                                                                                                                                                                                                        |
+| Part     | Yes          | 0.96" 128X64 I2C OLED (SSD1306)                                              | Niiice!                                                                                                                                                                                                                                                                            |
 | Software |              | [SNEngine code](files/code)                                                  |                                                                                                                                                                                                                                                                                    |
 | Software | Yes          | [SNEngine cheat sheet](files/SNEngine_Cheat_Sheet_Example.ods)               | A Libre Office Workook (should also work in Excel and Open Office) to keep track of wire colors, etc..                                                                                                                                                                             |
 | Software |              | Arduino IDE                                                                  |                                                                                                                                                                                                                                                                                    |
@@ -185,3 +187,13 @@ Here are some pictures to show, how I've tried to build the SNEngine adapter and
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_96_small.jpg)
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_97_small.jpg)
 ![SNEngine SNES to PC Engine Adapter](media/photos/snengine_assembly_98_small.jpg)
+
+### New OLED feature
+
+![SNEngine SNES to PC Engine Adapter](media/photos/oled/snengine_oled_01.jpg)
+![SNEngine SNES to PC Engine Adapter](media/photos/oled/snengine_oled_02.jpg)
+![SNEngine SNES to PC Engine Adapter](media/photos/oled/snengine_oled_03.jpg)
+![SNEngine SNES to PC Engine Adapter](media/photos/oled/snengine_oled_04.jpg)
+![SNEngine SNES to PC Engine Adapter](media/photos/oled/snengine_oled_05.jpg)
+![SNEngine SNES to PC Engine Adapter](media/photos/oled/snengine_oled_06.jpg)
+![SNEngine SNES to PC Engine Adapter](media/photos/oled/snengine_oled_07.jpg)
