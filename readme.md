@@ -99,28 +99,30 @@ The pictures provided here are not an implementation manual, but rather a person
 - Multiplexer bank A: Action buttons
 - Multiplexer bank B: D-Pad buttons
 
-| SNES Pin | SNES Function       | PC Engine Function | Arduino In Pin | Arduino Out Pin | MUX In Pin | MUX Out Pin | PC Engine / TG Cable Pin | PC Engine / TG function                       |
-| -------- | ------------------- | ------------------ | -------------- | --------------- | ---------- | ----------- | ------------------------ | --------------------------------------------- |
-| 4        | Serial: B / X       | Button I           | A2             | D4              | 2 (1A)     | 4 (1Y)      | 2                        | Up / Button I                                 |
-| 4        | Serial: D-Pad Up    | Up                 | A2             | D8              | 3 (1B)     | 4 (1Y)      | 2                        | Up / Button I                                 |
-| 4        | Serial: A / Y       | Button II          | A2             | D5              | 5 (2A)     | 7 (2Y)      | 3                        | Right / Button II                             |
-| 4        | Serial: D-Pad Right | Right              | A2             | D9              | 6 (2B)     | 7 (2Y)      | 3                        | Right / Button II                             |
-| 4        | Serial: Start       | Run                | A2             | D6              | 11 (3A)    | 9 (3Y)      | 5                        | Left / Run                                    |
-| 4        | Serial: D-Pad Left  | Left               | A2             | D10             | 10 (3B)    | 9 (3Y)      | 5                        | Left / Run                                    |
-| 4        | Serial: Select      | Select             | A2             | D7              | 14 (4A)    | 12 (4Y)     | 4                        | Down / Select                                 |
-| 4        | Serial: D-Pad Down  | Down               | A2             | D11             | 13 (4B)    | 12 (4Y)     | 4                        | Down / Select                                 |
-| 4        | Serial: L-Shoulder  | Autofire I         | A2             | - (D4)          | -          | -           | - (2)                    | -                                             |
-| 4        | Serial: R-Shoulder  | Autofire II        | A2             | - (D5)          | -          | -           | - (3)                    | -                                             |
-| -        | -                   | -                  | -              | -               | 1          | -           | 6                        | Select Line (Direction/Action)                |
-| -        | -                   | -                  | -              | -               | 15         | -           | 7                        | Output Enable (multitap controller switching) |
-| 1        | VCC 5V+             | -                  | VCC            | -               | 16         | -           | 1                        | VCC 5V+                                       |
-| 7        | GND                 | -                  | GND            | -               | 8          | -           | 8                        | GND                                           |
-| 2        | Clock               | -                  | -              | A0              | 8          | -           | -                        | -                                             |
-| 2        | Latch               | -                  | -              | A1              | 8          | -           | -                        | -                                             |
+| SNES Pin | SNES Function       | PC Engine Function | Arduino In Pin | Arduino Out Pin | MUX In Pin | MUX Out Pin | PC Engine / TG Cable Pin | PC Engine / TG function                       | OLED Display                 |
+| -------- | ------------------- | ------------------ | -------------- | --------------- | ---------- | ----------- | ------------------------ | --------------------------------------------- | ---------------------------- |
+| 4        | Serial: B / X       | Button I           | A2             | D4              | 2 (1A)     | 4 (1Y)      | 2                        | Up / Button I                                 |                              |
+| 4        | Serial: D-Pad Up    | Up                 | A2             | D8              | 3 (1B)     | 4 (1Y)      | 2                        | Up / Button I                                 |                              |
+| 4        | Serial: A / Y       | Button II          | A2             | D5              | 5 (2A)     | 7 (2Y)      | 3                        | Right / Button II                             |                              |
+| 4        | Serial: D-Pad Right | Right              | A2             | D9              | 6 (2B)     | 7 (2Y)      | 3                        | Right / Button II                             |                              |
+| 4        | Serial: Start       | Run                | A2             | D6              | 11 (3A)    | 9 (3Y)      | 5                        | Left / Run                                    |                              |
+| 4        | Serial: D-Pad Left  | Left               | A2             | D10             | 10 (3B)    | 9 (3Y)      | 5                        | Left / Run                                    |                              |
+| 4        | Serial: Select      | Select             | A2             | D7              | 14 (4A)    | 12 (4Y)     | 4                        | Down / Select                                 |                              |
+| 4        | Serial: D-Pad Down  | Down               | A2             | D11             | 13 (4B)    | 12 (4Y)     | 4                        | Down / Select                                 |                              |
+| 4        | Serial: L-Shoulder  | Autofire I         | A2             | - (D4)          | -          | -           | - (2)                    | -                                             |                              |
+| 4        | Serial: R-Shoulder  | Autofire II        | A2             | - (D5)          | -          | -           | - (3)                    | -                                             |                              |
+| -        | -                   | -                  | -              | -               | 1          | -           | 6                        | Select Line (Direction/Action)                |                              |
+| -        | -                   | -                  | -              | -               | 15         | -           | 7                        | Output Enable (multitap controller switching) |                              |
+| 1        | VCC 5V+             | -                  | VCC            | -               | 16         | -           | 1                        | VCC 5V+                                       | VDD or VCC (depends on OLED) |
+| 7        | GND                 | -                  | GND            | -               | 8          | -           | 8                        | GND                                           | GND                          |
+| 2        | Clock               | -                  | -              | A0              | 8          | -           | -                        | -                                             |                              |
+| 2        | Latch               | -                  | -              | A1              | 8          | -           | -                        | -                                             |                              |
+| -        | -                   | -                  | -              | A4              | 8          | -           | -                        | -                                             | SDA                          |
+| -        | -                   | -                  | -              | A5              | 8          | -           | -                        | -                                             | SCK/SCL (depends on OLED)    |
 
 **Click the diagrams below to enlarge.**
 
-[![SNEngine SNES to PC Engine Adapter](media/snengine_conn_ardu-mux_small.png)](media/snengine_conn_ardu-mux.png) [![SNEngine SNES to PC Engine Adapter](media/snengine_conn_ardu-pce_small.png)](media/snengine_conn_ardu-pce.png) [![SNEngine SNES to PC Engine Adapter](media/snengine_conn_snes-ardu_small.png)](media/snengine_conn_snes-ardu.png)
+[![SNEngine SNES to PC Engine Adapter](media/snengine_conn_ardu-mux_small.png)](media/snengine_conn_ardu-mux.png) [![SNEngine SNES to PC Engine Adapter](media/snengine_conn_ardu-pce_small.png)](media/snengine_conn_ardu-pce.png) [![SNEngine SNES to PC Engine Adapter](media/snengine_conn_snes-ardu_small.png)](media/snengine_conn_snes-ardu.png)[![SNEngine SNES to PC Engine Adapter](media/snengine_conn_ardu-oled_small.png)](media/snengine_conn_ardu-oled.png)
 
 ## Some photos
 

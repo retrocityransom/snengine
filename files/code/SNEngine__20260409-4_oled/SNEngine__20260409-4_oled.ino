@@ -8,14 +8,14 @@
   - Multitap compatible (tested with 2 SNEngine adapters and 1 original CoreGrafx gamepad simultaneously)
   - Switchable button layouts
   - Save settings to EEPROM
-  - OLED support -> 0.96" 128X64 I2C OLED (SSD1306)
+  - OLED support (I2C, SSD1306, 0.96", 128x64)
 
   Hotkey combos:
   - SELECT + UP: change autofire speed
   - SELECT + DOWN: cycle through different button layouts
   - SELECT + RIGHT: Save chosen autofire setting and button mapping as preset
 
-  If you want to connect an optional OLED display, attach SDA to A4 and SCL to the A5 pin of the Arduino.
+  If you want to connect an optional I2C OLED display, attach SDA to A4 and SCL (or SCK) to the A5 pin of the Arduino.
 */
 #include <EEPROM.h>
 #include <U8x8lib.h> //U8g2 
@@ -191,6 +191,17 @@ void setup() {
     u8x8.setContrast(MAX_OLED_CONTRAST_VAL);
     u8x8.clearDisplay();
   }
+
+  // Splash the mermaid
+  u8x8.clearDisplay();
+  u8x8.setFont(u8x8_font_7x14B_1x2_f);
+  u8x8.drawString(4, 1, "SN");
+  u8x8.setInverseFont(1);
+  u8x8.drawString(6, 1, "ENGINE");
+  u8x8.setFont(u8x8_font_5x7_f);
+  u8x8.setInverseFont(0);
+  delay(3000);
+  u8x8.clearDisplay();
 
   currentMode = MODE_HELP;
   hideBottomMessagesAt = millis() + HELP_TEXT_TIMEOUT;
