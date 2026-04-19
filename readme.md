@@ -8,7 +8,7 @@
 
 When I was looking for a simple and affordable way to connect an SNES/SFC controller to my consolized MVS system, I came across Robin Edwards’ GitHub repository featuring the excellent “[SNES to NeoGeo](https://github.com/robinhedwards/SNES-to-NeoGeo) ” project. It builds on the groundwork laid by [another GitHub project by Anthony Burkholder](https://github.com/burks10/Arduino-SNES-Controller) — to give proper credit here. Putting the adapter together went really well, and it was surprisingly easy, even though I’m not particularly experienced with soldering. One especially nice touch is that Robin also provides files for a 3D-printable case to house the Arduino and the SNES female controller port. Luckily, my brother owns a 3D printer and kindly made a few of these cases for me.
 
-Then one day, while playing on my PC Engine, I caught myself thinking, “Man, the controls are totally mushy”. The original PCE controllers are fine - in a way, but I personally prefer using a PS4, NES or SNES controller. They offer much tighter controls, I think.  There is an adapter for NES pads available ("NES2PCE"), but at the moment it costs around 35\$, plus shipping and import taxes, which adds up pretty quickly. It was mostly not in stock when I was looking, anyway. Another option are PCE Bluetooth adapters ("PCE BT", ~40\$) - I own two of them. Well, the input latency becomes noticeable when both BT adapters + controllers are connected — or when you hook up two or more controllers to a single adapter in multitap mode. For me, those adapters are only a good option when playing solo. Maybe I was using the existing solutions just wrong, but however ... With the recent experience of working on my own “SNES to NeoGeo” project still fresh in my mind, I decided to create something similar for the PC Engine and fit the electronics into the same case design from the SNES to NeoGeo project. I was looking forward to get some more practice soldering stuff together. So this is a small SNES-to-PCEngine converter (or SNES-to-Turbografx converter) project just for the fun of it.
+Then one day, while playing on my PC Engine, I caught myself thinking, “Man, the controls are totally mushy”. The original PCE controllers are fine - in a way, but I personally prefer using a PS4, NES or SNES controller. They offer much tighter controls, I think.  There is an adapter for NES pads available ("NES2PCE"), but at the moment it costs around 35\$, plus shipping and import taxes, which adds up pretty quickly. It was mostly not in stock when I was looking, anyway. Another option are PCE Bluetooth adapters ("PCE BT", ~40\$) - I own two of them. Well, the input latency becomes noticeable when both BT adapters + controllers are connected — or when you hook up two or more controllers to a single adapter in multitap mode. For me, those adapters are only a good option when playing solo. Maybe I was using the existing solutions just wrong, but however ... With the recent experience of working on my own “SNES to NeoGeo” project still fresh in my mind, I decided to create something similar for the PC Engine / Turbografx and fit the electronics into the same case design from the SNES to NeoGeo project. I was looking forward to get some more practice soldering stuff together and I wanted to build a TurboGrafx adapter / PC Engine adapter that would also let me use my Bluetooth and 2.4 GHz dongles for the SNES. So this is a small SNES-to-PCEngine converter (or SNES-to-Turbografx converter) project just for the fun of it.
 
 **[Download the user manual 20260414-1 (OLED: XBOX + PSX controller button names added)](files/SNEngine_20260414-1_User_Manual.pdf)**
 
@@ -28,8 +28,8 @@ Then one day, while playing on my PC Engine, I caught myself thinking, “Man, t
 - Settings can be stored in persistent memory
 - Multitap compatible (tested with two SNEngine adapters and one original CoreGrafx controller simultaneously)
 - Pressing the equivalents for button I and II on the SNES controller overrides already pressed autofire buttons. Very useful for games like R-Type in which you want to have autofire and a charged shot at the same time.
-- No noticeable input lag or audio glitches (at least in my testing).
-- Works with the 8BitDo SN30 2.4G for SNES and the 8BitDo Retro Receiver for SNES -> allows use of wireless SNES or Bluetooth controllers; likely compatible with similar 8BitDo products for NES
+- No noticeable input lag, audio glitches or jitter.
+- Works with the 8BitDo SN30 2.4G for SNES and the 8BitDo Retro Receiver for SNES -> allows use of wireless SNES or Bluetooth controllers; likely compatible with similar 8BitDo products for NES. Other adapters are likely to work as well, but I have not tested them.
 - Optional OLED support; if Xbox or PlayStation controllers are connected via Bluetooth, the button mapping display can be switched to show Xbox or PlayStation buttons instead of SNES mappings.
 
 ### Available button mappings
@@ -39,14 +39,18 @@ Then one day, while playing on my PC Engine, I caught myself thinking, “Man, t
 | **SNES** | **A** | **B** | **X**       | **Y**        | **L** | **R** |
 | **XBOX** | **B** | **A** | **Y**       | **X**        | **L** | **R** |
 | **PSX**  | **O** | **X** | **&#9651;** | **&#x25A1;** | **L** | **R** |
-| A        | 2   | 1   | 1   | 2   | T-1 | T-2 |
-| B        | 1   | 2   | 2   | 1   | T-2 | T-1 |
-| C        | 2   | 1   | T-2 | T-1 | 1   | 2   |
-| D        | 1   | 2   | T-1 | T-2 | 2   | 1   |
-| E        | T-2 | T-1 | 1   | 2   | 1   | 2   |
-| F        | T-1 | T-2 | 2   | 1   | 2   | 1   |
-| G        | 2   | T-2 | 1   | T-1 | 1   | 2   |
-| H        | 1   | T-1 | 2   | T-2 | 2   | 1   |
+| A        | 2     | 1     | 1           | 2            | T-1   | T-2   |
+| B        | 1     | 2     | 2           | 1            | T-2   | T-1   |
+| C        | 2     | 1     | T-2         | T-1          | 1     | 2     |
+| D        | 1     | 2     | T-1         | T-2          | 2     | 1     |
+| E        | T-2   | T-1   | 1           | 2            | 1     | 2     |
+| F        | T-1   | T-2   | 2           | 1            | 2     | 1     |
+| G        | 2     | T-2   | 1           | T-1          | 1     | 2     |
+| H        | 1     | T-1   | 2           | T-2          | 2     | 1     |
+
+\* T=Turbo
+
+\*\* The 8BitDo M30 (2.4G version) can be connected using the 2.4G adapter from the SN30. The button mapping corresponds to that of an SNES controller (A=A, B=B, …) , with the exception that Z functions as the left shoulder (L) button, C replaces the right shoulder (R) button and Minus (-) acts like SELECT. Of course, you can connect the M30 bluetooth version to the retro receiver and have the usual shoulder button mapping.
 
 ### Hotkeys
 
@@ -54,6 +58,7 @@ SNEngine offers hotkey combinations to choose different settings for your contro
 
 - SELECT + UP: SNEngine supports autofire. You can switch between frequencies by simultaneously pressing SELECT + UP. Since version SNEngine__20260402-2 there are more than just two speeds to choose from.
 - SELECT + DOWN: Choose your preferred button layout by pressing SELECT + DOWN simultaneously.
+- SELECT + LEFT: If you're using an Xbox or PlayStation adapter through the RetroReceiver, you can adjust the button names shown on your OLED to match the corresponding controller type.
 - SELECT + RIGHT: You can press SELECT + RIGHT to save your chosen autofire frequency and button mapping in persistent memory. This will be your new default setting from then on.
 
 ## Currently not featured
